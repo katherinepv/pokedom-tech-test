@@ -16,7 +16,9 @@ const renderPokemonCards = (pokemonArray) => {
             }</h2>
             <p>${
               element.name.charAt(0).toUpperCase() + element.name.slice(1)
-            } (#${element.id}) is a ${element.types} type pokemon.</p>
+            } (#${element.id}) is a ${element.types.join(
+      " & "
+    )} type pokemon.</p>
         </section>
         `;
   });
