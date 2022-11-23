@@ -1,8 +1,7 @@
 import { pokemonArray } from "./data/pokemon.js";
 
 const cardContainer = document.querySelector(".card-container");
-
-console.log(pokemonArray);
+const searchBar = document.querySelector("#search-bar");
 
 const renderPokemonCards = (pokemonArray) => {
   let htmlString = "";
@@ -29,3 +28,13 @@ const renderPokemonCards = (pokemonArray) => {
   cardContainer.innerHTML = htmlString;
 };
 renderPokemonCards(pokemonArray);
+
+const getUserSearchName = (event) => {
+  const userSearchInput = event.target.value;
+  const filteredSearch = pokemonArray.filter((element) => {
+    return pokemonArray.name.includes(userSearchInput);
+  });
+  console.log(filteredSearch);
+};
+
+searchBar.addEventListener("input", getUserSearchName);
